@@ -1,0 +1,8 @@
+<h1>This is Chats Page</h1>
+<div class="friends-list">
+  <h2>Friends List</h2>
+  <% @friends.each do |friend| %>
+    <p><%= friend.name %></p>
+  <% end %>
+</div>
+<%= link_to "Start Chatting", rooms_path %>

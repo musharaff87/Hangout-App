@@ -1,0 +1,12 @@
+
+<div class="posts">
+  <% @posts.each do |post| %>
+    <div class="post">
+    <br>
+    <p><strong><%= post.user.email %>:</strong> <%= post.content %></p>
+    <% if post.image.attached? %>
+        <%= image_tag post.image %>
+      <% end %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+<h1>Friends</h1>
+
+<div class="available-users">
+  <h2>Available Users</h2>
+  <% @available_users.each do |user| %>
+    <p><%= user.email %></p>
+    <%= button_to "Add Friend", friends_path(user_id: user.id), method: :post %>
+  <% end %>
+</div>
+
+<div class="friends-list">
+  <h2>Friends List</h2>
+  <% @friends.each do |friend| %>
+    <p><%= friend.name %></p>
+  <% end %>
+</div>
+
+
+<div class="friend-requests">
+<h2>Friend Requests</h2>
+<% @friend_requests.each do |request| %>
+  <p><%= request.name %></p>
+  <%= button_to "Accept", accept_friend_path(request), method: :patch %>
+  <%= button_to "Decline", decline_friend_path(request), method: :delete %>
+  <% end %>
+</div>
+
+
+

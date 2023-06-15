@@ -1,0 +1,18 @@
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <p><strong><%= post.user.email %>:</strong> <%= post.content %></p>
+    <% if post.image.attached? %>
+        <%= image_tag post.image %>
+      <% end %>
+  </div>
+<% end %>
+<br>
+
+<%= form_with(model: @post, url: posts_path, class: "post-form") do |form| %>
+  <div class="form-group">
+    <%= form.text_area :content, class: "form-control", placeholder: "Write your post..." %>
+  </div>
+  <%= form.submit "Post", class: "btn btn-primary" %>
+<% end %>
